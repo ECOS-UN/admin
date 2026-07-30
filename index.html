@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>🎛️ Centro de Control - Evento ECOS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 20px 15px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      margin: 0 0 5px 0;
+      color: #f59e0b;
+      letter-spacing: 0.5px;
+    }
+
+    .header p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      margin: 0;
+    }
+
+    /* GRID RESPONSIVO */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr; /* 1 columna en celulares */
+      gap: 16px;
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    /* En tabletas o monitores se vuelve de 2 columnas */
+    @media (min-width: 600px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    /* BOTONES TÁCTILES GRANDES */
+    .btn-card {
+      display: flex;
+      align-items: center;
+      padding: 18px 20px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.2s ease;
+      user-select: none;
+      min-height: 85px; /* Altura óptima para toque táctil */
+    }
+
+    .btn-card:active {
+      transform: scale(0.96);
+      filter: brightness(0.9);
+    }
+
+    @media (hover: hover) {
+      .btn-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    .btn-icon {
+      font-size: 2.2rem;
+      margin-right: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 45px;
+    }
+
+    .btn-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn-title {
+      font-size: 1.15rem;
+      line-height: 1.3;
+    }
+
+    .btn-desc {
+      font-size: 0.82rem;
+      opacity: 0.85;
+      margin-top: 3px;
+      font-weight: 400;
+    }
+
+    /* COLORES Y GRADIENTES DISTINTIVOS */
+    .bg-evaluacion {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    }
+
+    .bg-dash-publico {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    }
+
+    .bg-dash-interno {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    }
+
+    .bg-sorteo {
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    }
+
+    .bg-asignacion {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    }
+
+    .bg-informes {
+      background: linear-gradient(135deg, #db2777 0%, #be185d 100%);
+    }
+
+    .footer {
+      margin-top: auto;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>🎛️ Centro de Control ECOS</h1>
+    <p>Selecciona una plataforma para acceder</p>
+  </div>
+
+  <div class="grid-container">
+
+    <!-- 1. Sistema de Evaluación -->
+    <a href="URL_SISTEMA_EVALUACION" target="_blank" class="btn-card bg-evaluacion">
+      <div class="btn-icon">📝</div>
+      <div class="btn-content">
+        <span class="btn-title">Sistema de Evaluación</span>
+        <span class="btn-desc">Plataforma donde califican los Jueces</span>
+      </div>
+    </a>
+
+    <!-- 2. Dashboard Público -->
+    <a href="URL_DASHBOARD_PUBLICO" target="_blank" class="btn-card bg-dash-publico">
+      <div class="btn-icon">📊</div>
+      <div class="btn-content">
+        <span class="btn-title">Dashboard Público</span>
+        <span class="btn-desc">Resultados para audiencia general</span>
+      </div>
+    </a>
+
+    <!-- 3. Dashboard Interno -->
+    <a href="URL_DASHBOARD_INTERNO" target="_blank" class="btn-card bg-dash-interno">
+      <div class="btn-icon">🛡️</div>
+      <div class="btn-content">
+        <span class="btn-title">Dashboard Interno</span>
+        <span class="btn-desc">Avance en vivo de Jueces y Equipos</span>
+      </div>
+    </a>
+
+    <!-- 4. Sorteo de Proveedores -->
+    <a href="URL_DESPLIEGUE_APPSCRIPT?page=sorteo" target="_blank" class="btn-card bg-sorteo">
+      <div class="btn-icon">🎲</div>
+      <div class="btn-content">
+        <span class="btn-title">Sorteo de Patrocinadores</span>
+        <span class="btn-desc">Pantalla animada para entrega de premios</span>
+      </div>
+    </a>
+
+    <!-- 5. Asignación de Jueces y Equipos -->
+    <a href="URL_DESPLIEGUE_APPSCRIPT?page=asignaciones" target="_blank" class="btn-card bg-asignacion">
+      <div class="btn-icon">📋</div>
+      <div class="btn-content">
+        <span class="btn-title">Asignación de Jueces</span>
+        <span class="btn-desc">Matriz para emparejar Jueces vs Equipos</span>
+      </div>
+    </a>
+
+    <!-- 6. Página de Informes -->
+    <a href="URL_PAGINA_INFORMES" target="_blank" class="btn-card bg-informes">
+      <div class="btn-icon">📄</div>
+      <div class="btn-content">
+        <span class="btn-title">Informes del Evento</span>
+        <span class="btn-desc">Reportes y documentación oficial</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    Evento ECOS &copy; Panel de Administración Central
+  </div>
+
+</body>
+</html>
