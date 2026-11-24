@@ -10,8 +10,17 @@
 <body>
 
   <div class="header">
-    <h1>🎛️ Centro de Control ECOS</h1>
-    <p>Selecciona una plataforma para acceder</p>
+    <div class="header-brand">
+      <img src="img/LogoECOS.png" alt="Logo ECOS" class="logo">
+      <div class="header-text">
+        <h1>🎛️ Centro de Control ECOS</h1>
+        <p>Selecciona una plataforma para acceder</p>
+      </div>
+    </div>
+
+    <button id="btnThemeToggle" class="theme-toggle" onclick="alternarTema()" title="Cambiar entre modo claro y oscuro">
+      🌙 Modo Oscuro
+    </button>
   </div>
 
   <div class="grid-container">
@@ -26,11 +35,11 @@
     </a>
 
     <!-- 2. Dashboard Público -->
-    <a href="" target="_blank" class="btn-card bg-dash-publico">
+    <a href="pages/dashboard.html" target="_blank" class="btn-card bg-dash-publico">
       <div class="btn-icon">📊</div>
       <div class="btn-content">
         <span class="btn-title">Dashboard</span>
-        <span class="btn-desc">Resultados para audiencia general</span>
+        <span class="btn-desc">Resultados y monitoreo en vivo</span>
       </div>
     </a>
 
@@ -82,11 +91,40 @@
   </div>
 
   <div class="footer">
-    Evento ECOS &copy; Panel de Administración Central
+    Universidad del Norte, A.C. - Evento ECOS &copy; Panel de Administración Central
   </div>
 
   <!-- Cargar configuración central -->
   <script src="config.js"></script>
-</body>
+  <script>
+    // Aplicar tema guardado al cargar la página (por defecto: claro)
+    function aplicarTemaInicial() {
+      const temaGuardado = localStorage.getItem("ecos_tema") || "light";
+      const btn = document.getElementById("btnThemeToggle");
+
+      if (temaGuardado === "dark") {
+        document.body.classList.add("dark-mode");
+        btn.innerHTML = "☀️ Modo Claro";
+      } else {
+        document.body.classList.remove("dark-mode");
+        btn.innerHTML = "🌙 Modo Oscuro";
+      }
+    }
+
+    function alternarTema() {
+      const esOscuro = document.body.classList.toggle("dark-mode");
+      const btn = document.getElementById("btnThemeToggle");
+
+      if (esOscuro) {
+        localStorage.setItem("ecos_tema", "dark");
+        btn.innerHTML = "☀️ Modo Claro";
+      } else {
+        localStorage.setItem("ecos_tema", "light");
+        btn.innerHTML = "🌙 Modo Oscuro";
+      }
+    }
+
+    aplicarTemaInicial();
+  </script>
 </body>
 </html>
